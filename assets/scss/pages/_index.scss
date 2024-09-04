@@ -128,12 +128,20 @@
         position: relative;
         z-index: 1;
         border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        @include flex-item-center;
         gap: 10px;
 
 
+        @include breakpoint('ipad-min') {
+            gap: 9px;
+        }
+
+        @include breakpoint ('large') {
+            gap: 8px;
+        }
 
         .banner__livetitle {
             font-size: 12px;
@@ -153,8 +161,8 @@
 
             .indicator-live {
                 border-radius: 50px;
-                height: 5px;
-                width: 5px;
+                height: 6px;
+                width: 6px;
                 background-color: $white-color;
             }
         }
