@@ -623,6 +623,19 @@
         position: relative;
 
         .update__neweswrapper {
+            overflow: hidden;
+            cursor: pointer;
+
+            img {
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+
             &:nth-child(2) {
 
                 display: none;
@@ -637,9 +650,7 @@
             a {
                 text-decoration: none;
 
-                &:hover {
-                    color: $blue-color;
-                }
+
             }
 
             @include breakpoint ('ipad-min') {
@@ -762,6 +773,16 @@
             align-items: stretch;
             border-top-left-radius: 5px;
             margin-top: 15px;
+
+            img {
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
 
             &::after {
                 display: none;
