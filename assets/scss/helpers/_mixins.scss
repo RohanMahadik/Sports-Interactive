@@ -1,0 +1,54 @@
+// Media Queries
+$breakpoints: (
+    "extra-small":(max-width:365px),
+    "mobile":(min-width:565px),
+    "ipad-min": (min-width: 959px),
+    "desktop": (min-width: 1366px),
+    "large": (min-width: 1660px),
+);
+
+@mixin breakpoint($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Couldn't find a breakpoint named `#{$name}`.";
+    }
+}
+
+// Common Padding
+@mixin section-padding {
+    padding: 30px 0;
+}
+
+// Display Flex
+@mixin flex-item-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Gradient border
+@mixin gborder ($width: 100%, $left : 0px, $height: 5px) {
+
+    &::before {
+        content: "";
+        width: $width;
+        height: $height;
+        position: absolute;
+        bottom: 0;
+        left: $left;
+        background: -webkit-gradient(linear, left top, right top, color-stop(-2.04%, $pink-color), color-stop(102.14%, $blue-color));
+        background: -webkit-linear-gradient(left, $pink-color -2.04%, $blue-color 102.14%);
+        background: -o-linear-gradient(left, $pink-color -2.04%, $blue-color 102.14%);
+        background: linear-gradient(90deg, $pink-color -2.04%, $blue-color 102.14%);
+        -webkit-border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        z-index: 1;
+    }
+}

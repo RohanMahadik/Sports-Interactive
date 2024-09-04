@@ -1,0 +1,906 @@
+// Banner Section Css
+%banner-content-margin {
+    margin-bottom: 15px;
+}
+
+.banner {
+    background-image: url('#{$image-path}/mobile-top-bg.svg'),
+    linear-gradient(175deg, #EA14EC -2.04%, #1246CE 102.14%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include section-padding;
+
+    @include breakpoint ('ipad-min') {
+        background-image: url('#{$image-path}/tablet-top-bg.svg'),
+        linear-gradient(175deg, #EA14EC -2.04%, #1246CE 102.14%);
+    }
+
+    @include breakpoint ('desktop') {
+        background-image: url('#{$image-path}/desktop-top-bg.svg'),
+        linear-gradient(175deg, #EA14EC -2.04%, #1246CE 102.14%);
+    }
+
+    &__title {
+        font-size: 12px;
+        font-weight: 700;
+        color: $white-color;
+        line-height: 17px;
+        text-transform: uppercase;
+        margin: 0 auto 14px auto;
+        width: 70%;
+        text-align: center;
+        position: relative;
+        letter-spacing: .3px;
+
+        @include breakpoint ('extra-small') {
+            width: 100%;
+        }
+
+        @include breakpoint ('mobile') {
+            font-size: 14px;
+        }
+
+        @include breakpoint ('ipad-min') {
+            font-size: 17px;
+        }
+
+        .banner__ballicon {
+            position: relative;
+            top: 5px;
+            left: -3px;
+
+            @include breakpoint ('ipad-min') {
+                width: 24px;
+                top: 6px;
+            }
+        }
+
+
+    }
+
+    &__matchdatetime {
+        color: $white-color;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: center;
+        @extend %banner-content-margin;
+
+        @include breakpoint ('mobile') {
+            font-size: 14px;
+        }
+
+        @include breakpoint ('ipad-min') {
+            font-size: 14px;
+        }
+
+        span {
+            padding: 0 8px;
+
+            &:nth-child(2) {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    width: 1px;
+                    height: 100%;
+                    background-color: $white-color;
+                    position: absolute;
+                    left: -1px;
+                }
+            }
+        }
+    }
+
+    &__matchtelecast {
+        @extend %banner-content-margin;
+        position: relative;
+        @include flex-item-center;
+
+        @include breakpoint ('ipad-min') {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        @include breakpoint ('desktop') {
+            width: 45%;
+        }
+
+        &::after {
+            content: '';
+            width: 100%;
+            background-color: rgba(247, 247, 250, 0.7490196078);
+            position: absolute;
+            height: 0.1rem;
+            opacity: 20%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    }
+
+    &__liveindicatore {
+        background-color: $green-color;
+        display: inline-block;
+        padding: 6px 10px;
+        position: relative;
+        z-index: 1;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+
+
+        .banner__livetitle {
+            font-size: 12px;
+            font-weight: 700;
+            color: $white-color;
+        }
+
+        .banner__indicatore {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            position: relative;
+
+            .indicator-live {
+                border-radius: 50px;
+                height: 5px;
+                width: 5px;
+                background-color: $white-color;
+            }
+        }
+    }
+
+    &__matchinsight {
+        @include flex-item-center;
+        @extend %banner-content-margin;
+        justify-content: space-between;
+        gap: 10px;
+
+        @include breakpoint ('ipad-min') {
+            margin: 30px 0 40px 0;
+        }
+
+        .banner-teamscore {
+            @include flex-item-center;
+            gap: 10px;
+            width: 45%;
+            height: 100px;
+
+            @include breakpoint ('ipad-min') {
+                gap: 25px;
+
+                &:nth-child(3) {
+                    li {
+                        flex-direction: row-reverse;
+                    }
+                }
+
+            }
+        }
+
+        .banner-teamsvs {
+            width: 10%;
+            @include flex-item-center;
+
+            span {
+                display: block;
+                height: 20px;
+                width: 20px;
+                background-color: rgba(255, 255, 255, 0.4);
+                -webkit-backdrop-filter: blur(5px);
+                backdrop-filter: blur(5px);
+                color: $white-color;
+                @include flex-item-center;
+                border-radius: 50%;
+                font-weight: 700;
+                font-size: 10px;
+                color: $light-gray-color;
+
+                @include breakpoint ('ipad-min') {
+                    font-size: 14px;
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+        }
+
+        .banner__teamlogoimg {
+            max-width: 40px;
+
+            @include breakpoint ('ipad-min') {
+                max-width: 70px;
+
+            }
+
+            @include breakpoint ('extra-small') {
+                width: 30px;
+            }
+        }
+
+        .banner__teamlogo {
+            @include flex-item-center;
+            justify-content: space-between;
+            background-color: $white-color;
+            padding: 10px;
+            border-radius: 50%;
+
+            @include breakpoint ('ipad-min') {
+                width: 130px;
+                height: 130px;
+                justify-content: center;
+            }
+
+            &:nth-child(1) {
+                border: 2px solid $pink-color;
+                box-shadow: 0px 0px 1.97px 0px #111720BF;
+
+                @include breakpoint ('ipad-min') {
+                    border: 3px solid $pink-color;
+                }
+
+            }
+
+            &:nth-child(2) {
+                box-shadow: 0px 0px 1.97px 0px #111720BF;
+
+            }
+
+        }
+
+        .banner-teamdata {
+            li {
+                color: rgba(255, 255, 255, 0.75);
+                padding: 10px 0;
+
+                &:nth-child(1) {
+                    font-size: 18px;
+                    font-weight: 700;
+
+                    @include breakpoint ('extra-small') {
+                        font-size: 16px;
+                    }
+
+                    @include breakpoint ('mobile') {
+                        font-size: 20px;
+                    }
+
+                    @include breakpoint ('ipad-min') {
+                        font-size: 28px;
+                    }
+
+
+                }
+
+                &:nth-child(2) {
+                    font-size: 16px;
+                    font-weight: 700;
+                    position: relative;
+
+                    @include breakpoint ('mobile') {
+                        font-size: 18px;
+                    }
+
+                    @include breakpoint ('ipad-min') {
+                        font-size: 20px;
+                    }
+
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        background-color: rgba(247, 247, 250, 0.7490196078);
+                        top: 0;
+                        height: 0.1rem;
+                        opacity: 20%;
+                        position: absolute;
+
+                        @include breakpoint ('ipad-min') {
+                            width: 70%;
+                        }
+                    }
+
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        background-color: rgba(247, 247, 250, 0.7490196078);
+                        bottom: 0;
+                        height: 0.1rem;
+                        opacity: 20%;
+                        position: absolute;
+
+                        @include breakpoint ('ipad-min') {
+                            width: 70%;
+                        }
+                    }
+                }
+
+                &:nth-child(3) {
+                    font-size: 16px;
+                    color: $white-color;
+                    font-weight: 700;
+
+                    @include breakpoint ('mobile') {
+                        font-size: 18px;
+                    }
+
+                    @include breakpoint ('ipad-min') {
+                        font-size: 20px;
+                    }
+                }
+
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                .banner__bowlingfigure {
+                    font-size: 10px;
+                    font-weight: 400;
+
+                    @include breakpoint ('ipad-min') {
+                        font-size: 12px;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    &__requirerate {
+        @extend %banner-content-margin;
+
+        .banner__reqrate {
+            padding: 14px 0;
+            font-size: 12px;
+            text-align: center;
+            font-weight: 500;
+            color: $light-gray-color;
+            position: relative;
+
+            @include breakpoint ('mobile') {
+                font-size: 14px;
+            }
+
+            @include breakpoint ('ipad-min') {
+                margin: 30px auto 15px auto;
+                width: 60%;
+                font-size: 16px;
+            }
+
+            @include breakpoint ('desktop') {
+                padding: 14px 0 20px 0;
+                width: 40%;
+            }
+
+            &::before {
+                content: '';
+                content: "";
+                width: 100%;
+                background-color: rgba(247, 247, 250, 0.7490196078);
+                position: absolute;
+                height: 0.1rem;
+                opacity: 20%;
+                top: 0;
+                left: 0;
+            }
+
+            &::after {
+                content: '';
+                content: "";
+                width: 100%;
+                background-color: rgba(247, 247, 250, 0.7490196078);
+                position: absolute;
+                height: 0.1rem;
+                opacity: 20%;
+                bottom: 0;
+                left: 0;
+
+                @include breakpoint ('ipad-min') {
+                    display: none;
+                }
+
+                @include breakpoint ('desktop') {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__matchvenu {
+        @extend %banner-content-margin;
+
+        .banner__stadium {
+            font-size: 12px;
+            color: $light-gray-color;
+            font-weight: 400;
+            opacity: .8;
+            @include flex-item-center;
+
+            @include breakpoint ('mobile') {
+                font-size: 14px;
+            }
+
+            @include breakpoint ('ipad-min') {
+                font-size: 14px;
+            }
+
+            .banner__stadiumicon {
+                width: 15px;
+                margin-right: 10px;
+
+                @include breakpoint ('ipad-min') {
+                    width: 20px;
+                }
+            }
+        }
+    }
+
+    &__score {
+        @include breakpoint ('ipad-min') {
+            flex-basis: calc((100% - 96px) / 2);
+        }
+
+        @include breakpoint ('desktop') {
+            flex-basis: calc((100% - 336px) / 2);
+        }
+
+        &:nth-child(1) {
+            @extend %banner-content-margin;
+
+            @include breakpoint ('ipad-min') {
+                margin: 0;
+            }
+        }
+    }
+
+    &__scorecard {
+        padding-top: 15px;
+
+        @include breakpoint ('ipad-min') {
+            @include flex-item-center;
+            gap: 20px;
+        }
+
+        .banner__fielder {
+            font-weight: 700;
+            font-size: 14px;
+            color: $white-color;
+            margin-bottom: 10px;
+
+            @include breakpoint ('mobile') {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__scoredatacontainer {
+        padding: 5px 15px;
+        background-color: $white-color;
+        border: 1px solid $black-color;
+        border-radius: 5px;
+        justify-content: space-between;
+        display: flex;
+        position: relative;
+        align-items: center;
+
+        @include breakpoint ('extra-small') {
+            padding: 5px 5px;
+        }
+
+        li {
+            flex-grow: 1;
+            @include flex-item-center;
+            gap: 5px;
+            padding: 10px 15px;
+            position: relative;
+
+            @include breakpoint ('extra-small') {
+                padding: 10px 5px;
+            }
+
+            @include breakpoint ('ipad-min') {
+                padding: 10px 5px;
+            }
+
+            &:nth-child(1) {
+                border-right: 1px solid rgba(31, 31, 31, 0.2);
+            }
+
+            .banner__playername {
+                color: $black-color-3;
+                font-weight: 500;
+                font-size: 13px;
+
+                @include breakpoint ('mobile') {
+                    font-size: 16px;
+                }
+
+                @include breakpoint ('ipad-min') {
+                    font-size: 16px;
+                }
+            }
+
+            .banner__playerscore {
+                font-weight: 700;
+                color: $pink-color;
+                font-size: 15px;
+
+                @include breakpoint ('extra-small') {
+                    font-size: 14px;
+                }
+
+                @include breakpoint ('mobile') {
+                    font-size: 16px;
+                }
+
+                @include breakpoint ('ipad-min') {
+                    font-size: 20px;
+                }
+
+            }
+        }
+    }
+
+
+}
+
+// Update Section Css
+.update {
+    margin-top: 23px;
+    margin-bottom: 40px;
+
+    @include breakpoint ('ipad-min') {
+        margin-top: 40px;
+        padding: 0 38px;
+    }
+
+    &__topsection {
+        @include flex-item-center;
+        justify-content: space-between;
+
+        .update__title {
+            font-size: 16px;
+            font-weight: 700;
+            color: $black-color-3;
+            text-transform: uppercase;
+
+
+
+            @include breakpoint ('mobile') {
+                font-size: 18px;
+            }
+
+            @include breakpoint ('ipad-min') {
+                font-size: 20px;
+            }
+        }
+
+        .update__seemore {
+            color: $pink-color;
+            font-weight: 700;
+            font-size: 12px;
+
+            &:hover {
+                color: $blue-color;
+            }
+
+            @include breakpoint ('mobile') {
+                font-size: 14px;
+            }
+
+            @include breakpoint ('ipad-min') {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__latestnews {
+        margin-top: 20px;
+
+        @include breakpoint ('ipad-min') {
+            margin-top: 15px;
+            @include flex-item-center;
+            gap: 15px;
+        }
+
+        position: relative;
+
+        .update__neweswrapper {
+            &:nth-child(2) {
+
+                display: none;
+            }
+
+            background-color: $light-gray-color-2;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            position: relative;
+            @include gborder;
+
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    color: $blue-color;
+                }
+            }
+
+            @include breakpoint ('ipad-min') {
+                &:nth-child(2) {
+
+                    display: block;
+                }
+
+                &::before {
+                    width: calc(100% - 30px);
+                    right: 0;
+                    left: 0;
+                    margin: 0 auto;
+                    bottom: -5px;
+                }
+
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background: linear-gradient(0deg, #0F1C70 -4%, rgba(45, 65, 207, 0) 58.15%);
+                    border-radius: 0.5rem;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            .update__newsimg {
+                width: 100%;
+                border-radius: 5px;
+                display: block;
+            }
+        }
+
+        .update__newsdata {
+            padding: 15px;
+
+            @include breakpoint ('ipad-min') {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 15px;
+                z-index: 1;
+            }
+
+            .update__newstitle {
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 24px;
+                color: $black-color-3;
+
+
+                @include breakpoint ('mobile') {
+                    font-size: 16px;
+                }
+
+                @include breakpoint ('ipad-min') {
+                    color: $white-color-2;
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+
+
+            }
+        }
+
+        .update__bottom {
+            @include flex-item-center;
+            justify-content: space-between;
+            margin-top: 15px;
+
+            .update__badge {
+                font-size: 12px;
+                font-weight: 400;
+                color: $black-color-2;
+                opacity: .5;
+
+                @include breakpoint ('ipad-min') {
+                    color: $white-color;
+                    opacity: 50%;
+                }
+
+            }
+
+            .update__news {
+                text-decoration: none;
+                color: $black-color-2;
+
+                @include breakpoint ('ipad-min') {
+                    color: $white-color;
+                }
+            }
+
+        }
+
+
+    }
+
+    &__newslist.update__latestnews {
+        margin-top: 30px;
+
+        @include breakpoint ('ipad-min') {
+            @include flex-item-center;
+            gap: 13px;
+            margin-top: 20px;
+        }
+
+        .update__newsdata {
+            width: 70%;
+
+            @include breakpoint ('ipad-min') {
+                width: 100%;
+            }
+        }
+
+        .update__neweswrapper {
+            @include flex-item-center;
+            flex-direction: row-reverse;
+            align-items: stretch;
+            border-top-left-radius: 5px;
+            margin-top: 15px;
+
+            &::after {
+                display: none;
+            }
+
+            @include breakpoint ('ipad-min') {
+                display: block;
+                margin-top: 0;
+            }
+
+            @include gborder($height: 4px, $left: unset);
+
+            &::before {
+                width: calc(35% - 25px);
+                right: 8px;
+                bottom: -3px;
+
+                @include breakpoint ('mobile') {
+                    width: calc(35% - 40px);
+                    right: 12px;
+                }
+
+                @include breakpoint ('ipad-min') {
+                    width: calc(100% - 20px);
+                    margin: 0 auto;
+                    left: 0;
+                    right: 0;
+                }
+
+                @include breakpoint ('desktop') {}
+
+            }
+
+            .update__newsdata {
+                position: unset;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .update__newstitle {
+                flex-grow: 1;
+                font-size: 12px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                line-height: 20px;
+                color: initial;
+
+
+
+                @include breakpoint ('mobile') {
+                    font-size: 14px;
+                }
+
+                @include breakpoint ('desktop') {
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+
+            .update__bottom {
+                .update__badge {
+                    @include breakpoint ('ipad-min') {
+                        color: initial;
+                    }
+                }
+
+                .update__news {
+                    @include breakpoint ('ipad-min') {
+                        color: initial;
+                    }
+                }
+
+            }
+
+            .update__badge {
+                font-size: 10px;
+
+                @include breakpoint ('mobile') {
+                    font-size: 12px;
+                }
+
+
+            }
+
+            .update__newsimg {
+                width: 35%;
+                position: relative;
+                overflow: hidden;
+
+                &::after {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background: linear-gradient(0deg, rgb(15, 28, 112) -4%, rgba(45, 65, 207, 0) 58.15%);
+                    border-radius: 0.5rem;
+                    top: 0px;
+                    left: 0px;
+
+                    @include breakpoint ('ipad-min') {
+                        display: none;
+                    }
+                }
+
+                img {
+                    object-fit: fill;
+                    object-position: 125% 60%;
+                    display: block;
+                    border-radius: 5px;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1);
+
+                    }
+                }
+
+
+                @include breakpoint ('ipad-min') {
+                    width: 100%;
+                }
+
+            }
+        }
+
+    }
+
+    &__share,
+    &__sharewhite {
+        width: 14px;
+
+        @include breakpoint ('ipad-min') {
+            width: 16px;
+        }
+
+    }
+
+    &__sharewhite {
+        @include breakpoint ('ipad-min') {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7485%) hue-rotate(52deg) brightness(101%) contrast(107%);
+        }
+    }
+
+
+}

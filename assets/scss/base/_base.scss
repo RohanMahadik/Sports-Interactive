@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+body {
+    font-weight: 400;
+    background-color: $white-color;
+    font-family: $primary-font;
+    font-synthesis: none;
+
+
+
+}
+
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+//container size
+.container {
+    width: calc(100% - 26px);
+    margin: 0 auto;
+
+    @include breakpoint (ipad-min) {
+        width: calc(100% - 44px);
+    }
+
+    @include breakpoint ('desktop') {
+
+        width: calc(100% - 160px);
+    }
+}
